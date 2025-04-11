@@ -4,10 +4,10 @@ import os
 ARTICLE = "Main"
 
 commands = [
-    f"latex -synctex=1 {ARTICLE}",
+    f"pdflatex -synctex=1 {ARTICLE}",
     f"bibtex {ARTICLE}",
-    f"latex -synctex=1 {ARTICLE}",
-    f"latex -synctex=1 {ARTICLE}",
+    f"pdflatex -synctex=1 {ARTICLE}",
+    f"pdflatex -synctex=1 {ARTICLE}",
     f"dvipdfmx {ARTICLE}.dvi"
 ]
 
@@ -16,6 +16,6 @@ for cmd in commands:
     result = subprocess.run(cmd, shell=True)
     if result.returncode != 0:
         print(f"❌ Error running: {cmd}, with exit code {result.returncode}")
-        break
+        # break
 else:
     print("\n✅ Compilation finished successfully.")
