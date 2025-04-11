@@ -1,0 +1,45 @@
+# ======================
+# LaTeX build artifacts
+# ======================
+
+# Common auxiliary files
+*.aux
+*.bak
+*.log
+*.bbl
+*.blg
+*.dvi
+*.thm
+*.toc
+*.toe
+*.lof
+*.lot
+*.out
+*.fen
+*.ten
+*.ps
+*.gz
+*.synctex
+*.synctex.gz
+*.loa
+
+# Temporary or editor files
+*~
+*.tmp
+*.swp
+*.backup
+*.synctex(busy)
+
+# VS Code & LaTeX Workshop
+.vscode/
+*.fdb_latexmk
+*.fls
+*.pdfsync
+latexmkrc
+
+# MacOS/Windows system files
+.DS_Store
+Thumbs.db
+
+# Production PDF
+Main.pdf
