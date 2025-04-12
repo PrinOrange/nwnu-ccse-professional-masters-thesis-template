@@ -24,6 +24,7 @@ patterns = [
     "*.gz(busy)",
     "*.eps",
     "*.fdb_latexmk",
+    "*.bak*"
 ]
 
 deleted_count = 0

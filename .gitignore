@@ -31,6 +31,9 @@
 *.backup
 *.synctex(busy)
 
+# Backup files
+*.bak*
+
 # VS Code & LaTeX Workshop
 .vscode/
 *.fdb_latexmk

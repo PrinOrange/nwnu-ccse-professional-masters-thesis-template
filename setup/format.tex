@@ -54,29 +54,29 @@
 % 自定义项目列表标签及格式 \begin{publist} 列表项 \end{publist}
 \newcounter{pubctr} %自定义新计数器
 \newenvironment{publist}{%%%%%定义新环境
-\begin{list}{[\arabic{pubctr}]} %%标签格式
-    {
-     \usecounter{pubctr}
-     \setlength{\leftmargin}{4em}     % 左边界 \leftmargin =\itemindent + \labelwidth + \labelsep
-     \setlength{\itemindent}{0em}     % 标号缩进量
-     \setlength{\labelsep}{1em}       % 标号和列表项之间的距离，默认 0.5em
-     \setlength{\rightmargin}{0em}    % 右边界
-     \setlength{\topsep}{0ex}         % 列表到上下文的垂直距离
-     \setlength{\parsep}{0ex}         % 段落间距
-     \setlength{\itemsep}{0ex}        % 标签间距
-     \setlength{\listparindent}{0pt} % 段落缩进量
-    }}
-{\end{list}}%%%%%
+	\begin{list}{[\arabic{pubctr}]} %%标签格式
+		{
+		\usecounter{pubctr}
+		\setlength{\leftmargin}{4em}     % 左边界 \leftmargin =\itemindent + \labelwidth + \labelsep
+		\setlength{\itemindent}{0em}     % 标号缩进量
+		      \setlength{\labelsep}{1em}       % 标号和列表项之间的距离，默认 0.5em
+		      \setlength{\rightmargin}{0em}    % 右边界
+		      \setlength{\topsep}{0ex}         % 列表到上下文的垂直距离
+		      \setlength{\parsep}{0ex}         % 段落间距
+		      \setlength{\itemsep}{0ex}        % 标签间距
+		      \setlength{\listparindent}{0pt} % 段落缩进量
+		      }}
+		      {\end{list}}%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5默认字体大小
 \makeatletter
 \renewcommand\normalsize{
-  \@setfontsize\normalsize{12pt}{12pt} % 小四对应 12pt
-  \setlength\abovedisplayskip{4pt}
-  \setlength\abovedisplayshortskip{4pt}
-  \setlength\belowdisplayskip{\abovedisplayskip}
-  \setlength\belowdisplayshortskip{\abovedisplayshortskip}
-    \let\@listi\@listI}
+	\@setfontsize\normalsize{12pt}{12pt} % 小四对应 12pt
+	\setlength\abovedisplayskip{4pt}
+	\setlength\abovedisplayshortskip{4pt}
+	\setlength\belowdisplayskip{\abovedisplayskip}
+	\setlength\belowdisplayshortskip{\abovedisplayshortskip}
+	\let\@listi\@listI}
 %%%%%%%%%%%%%%%%%%%%%%%%-5555555555555                                 -------定义默认字体和行距---------%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\renewcommand{\CJKglue}{\hskip 0.5pt \baselineskip}
 \def\defaultfont{\renewcommand{\baselinestretch}{1.67}\normalsize\selectfont}
@@ -105,14 +105,14 @@
 %\thispagestyle{empty}
 \setcounter{tocdepth}{2}%%%%%%%%设置目录层次 的深度
 \titlecontents{chapter}[0em]{\xiaosi\hei}%
-             {\prechaptername~~\thecontentslabel~~\postchaptername~~~}{} %
-             {\titlerule*[5pt]{$\cdot$}\xiaosi\contentspage}
+{\prechaptername~~\thecontentslabel~~\postchaptername~~~}{} %
+{\titlerule*[5pt]{$\cdot$}\xiaosi\contentspage}
 \titlecontents{section}[1em]{\xiaosi\song} %
-            {\thecontentslabel\quad }{} %
-            {\hspace{.25em}\titlerule*[5pt]{$\cdot$}\xiaosi\contentspage}
+{\thecontentslabel\quad }{} %
+{\hspace{.25em}\titlerule*[5pt]{$\cdot$}\xiaosi\contentspage}
 \titlecontents{subsection}[2em]{\xiaosi\song} %
-            {\thecontentslabel\quad }{} %
-            {\hspace{.25em}\titlerule*[5pt]{$\cdot$}\xiaosi\contentspage}
+{\thecontentslabel\quad }{} %
+{\hspace{.25em}\titlerule*[5pt]{$\cdot$}\xiaosi\contentspage}
 \renewcommand{\cftdotsep}{1.1}
 \renewcommand{\listfigurename}{图片索引}
 \setcounter{lofdepth}{1}
@@ -127,33 +127,33 @@
 \makeatletter
 
 \def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
-                       \if@mainmatter
-                         \refstepcounter{chapter}%
-                         \typeout{\@chapapp\space\thechapter.}%
-                         \addcontentsline{toc}{chapter}%
-                                   {\protect\numberline{\thechapter}#1}%
-                         \def\leftmark{第\thechapter 章\quad #2}
-                       \else
-                         \addcontentsline{toc}{chapter}{#1}%
-                       \fi
-                    \else
-                      \addcontentsline{toc}{chapter}{#1}%
-                    \fi
-                    \chaptermark{#1}%
-                    \if@twocolumn
-                      \@topnewpage[\@makechapterhead{#2}]%
-                    \else
-                      \@makechapterhead{#2}%
-                      \@afterheading
-                    \fi}
+		\if@mainmatter
+			\refstepcounter{chapter}%
+			\typeout{\@chapapp\space\thechapter.}%
+			\addcontentsline{toc}{chapter}%
+			{\protect\numberline{\thechapter}#1}%
+			\def\leftmark{第\thechapter 章\quad #2}
+		\else
+			\addcontentsline{toc}{chapter}{#1}%
+		\fi
+	\else
+		\addcontentsline{toc}{chapter}{#1}%
+	\fi
+	\chaptermark{#1}%
+	\if@twocolumn
+		\@topnewpage[\@makechapterhead{#2}]%
+	\else
+		\@makechapterhead{#2}%
+		\@afterheading
+	\fi}
 
 \def\@schapter#1{\if@twocolumn
-                   \@topnewpage[\@makeschapterhead{#1}]%
-                 \else
-                   \@makeschapterhead{#1}%
-                   \def\leftmark{#1}
-                   \@afterheading
-                 \fi}
+		\@topnewpage[\@makeschapterhead{#1}]%
+	\else
+		\@makeschapterhead{#1}%
+		\def\leftmark{#1}
+		\@afterheading
+	\fi}
 \makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -194,15 +194,15 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%定制浮动图形和表格标题样式%%%%%%%%%%%%%%%%%%
 \makeatletter
 \long\def\@makecaption#1#2{%
-   \vskip\abovecaptionskip
-   \sbox\@tempboxa{\centering\wuhao{#1~~#2} }%
-   \ifdim \wd\@tempboxa >\hsize
-     \centering\wuhao{#1~~#2} \par
-   \else
-     \global \@minipagefalse
-     \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
-   \fi
-   \vskip\belowcaptionskip}
+	\vskip\abovecaptionskip
+	\sbox\@tempboxa{\centering\wuhao{#1~~#2} }%
+	\ifdim \wd\@tempboxa >\hsize
+		\centering\wuhao{#1~~#2} \par
+	\else
+		\global \@minipagefalse
+		\hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+	\fi
+	\vskip\belowcaptionskip}
 \makeatother
 \captiondelim{~~~~} %用来控制 longtable 表头分隔符
 
@@ -289,8 +289,8 @@
 %\mainmatter 或 \pagenumbering{arabic}
 \makeatletter
 \renewcommand\frontmatter{\clearpage
-  \@mainmatterfalse
-  \pagenumbering{Roman}} % 正文前罗马字体编号
+	\@mainmatterfalse
+	\pagenumbering{Roman}} % 正文前罗马字体编号
 \makeatother
 
 
@@ -308,7 +308,7 @@
 			\thesubsectionAppen:~#1}}\par\setlength{\parindent}{2em}}
 \makeatletter
 \@addtoreset{subsectionAppen}{sectionAppen}
-\makeatother		
+\makeatother
 
 \makeatletter
 
@@ -358,28 +358,28 @@
 % 重定义参考文献样式，来自 thu
 \makeatletter
 \renewenvironment{thebibliography}[1]{%
-   \chapter*{\bibname}%
-   \wuhao
-   \list{\@biblabel{\@arabic\c@enumiv}}%
-        {\renewcommand{\makelabel}[1]{##1\hfill}
-         \setlength{\baselineskip}{16pt}
-         \settowidth\labelwidth{0.5cm}
-         \setlength{\labelsep}{0pt}
-         \setlength{\itemindent}{0pt}
-         \setlength{\leftmargin}{\labelwidth+\labelsep}
-         \addtolength{\itemsep}{-0.7em}
-         \usecounter{enumiv}%
-         \let\p@enumiv\@empty
-         \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-    \sloppy\frenchspacing
-    \clubpenalty4000%
-    \@clubpenalty \clubpenalty
-    \widowpenalty4000%
-    \interlinepenalty4000%
-    \sfcode`\.\@m}
-   {\def\@noitemerr
-     {\@latex@warning{Empty `thebibliography' environment}}%
-    \endlist\frenchspacing}
+	\chapter*{\bibname}%
+	\wuhao
+	\list{\@biblabel{\@arabic\c@enumiv}}%
+	{\renewcommand{\makelabel}[1]{##1\hfill}
+		\setlength{\baselineskip}{16pt}
+		\settowidth\labelwidth{0.5cm}
+		\setlength{\labelsep}{0pt}
+		\setlength{\itemindent}{0pt}
+		\setlength{\leftmargin}{\labelwidth+\labelsep}
+		\addtolength{\itemsep}{-0.7em}
+		\usecounter{enumiv}%
+		\let\p@enumiv\@empty
+		\renewcommand\theenumiv{\@arabic\c@enumiv}}%
+	\sloppy\frenchspacing
+	\clubpenalty4000%
+	\@clubpenalty \clubpenalty
+	\widowpenalty4000%
+	\interlinepenalty4000%
+	\sfcode`\.\@m}
+{\def\@noitemerr
+	{\@latex@warning{Empty `thebibliography' environment}}%
+	\endlist\frenchspacing}
 \makeatother
 
 \addtolength{\bibsep}{5pt} % 增加参考文献间的垂直间距
@@ -476,327 +476,327 @@
 \def\@put@covertitle#1{\makebox[\@title@width][s]{#1}}
 % 定义封面
 \def\makecover{
-%\cleardoublepage%
-   \phantomsection
-    \pdfbookmark[-1]{\@ctitle}{ctitle}
+	%\cleardoublepage%
+	\phantomsection
+	\pdfbookmark[-1]{\@ctitle}{ctitle}
 
-    \begin{titlepage}
-    \begin{center}
+	\begin{titlepage}
+		\begin{center}
 
-      \setlength{\@title@width}{1.6cm}%----------------------对封面分类号后面横线的长度进行定义
-       {
- \begin{spacing}{2.1}
-  \begin{tabular}{lcclc}
+			\setlength{\@title@width}{1.6cm}%----------------------对封面分类号后面横线的长度进行定义
+			{
+				\begin{spacing}{2.1}
+					\begin{tabular}{lcclc}
 
-   \sihao\fs{~~分~类~号}&\underline{\makebox[\@title@width][c]{\@chnunumer}}&\qquad \qquad \qquad \qquad \qquad \qquad \qquad & \sihao\fs{密~级}&  \underline{\makebox[\@title@width][c]{\@cnumber}}\\
-   \sihao\fs{~~U~~D~~C}&  \underline{\makebox[\@title@width][c]{\@cclassnumber}}&\qquad \qquad \qquad \qquad \qquad \qquad \qquad & \sihao\fs{编~号}&  \underline{\makebox[\@title@width][c]{\sihao\fs\@csecret}} \\
-   \end{tabular}
-   \end{spacing}
-  }
-%%%%%%%%%%%%%%%%%%%%%%西北师范大学 logo 图片%%%%%%%%%%%%%%%%%%%%%%%%
- \begin{figure}[h]
-  \centering
-   \vspace*{0.6cm}
-  \includegraphics[width=0.4\textwidth]{figures/nwnulog}
-  \end{figure}
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%硕士学位论文%%%%%%%%%%%%%%%%%%%%%%%%%
-      \vspace*{0.3cm}
-      {\song\erhao\@cheadinga}\\
-      \vspace{0.4\baselineskip}
+						\sihao\fs{~~分~类~号} & \underline{\makebox[\@title@width][c]{\@chnunumer}}    & \qquad \qquad \qquad \qquad \qquad \qquad \qquad & \sihao\fs{密~级} & \underline{\makebox[\@title@width][c]{\@cnumber}}          \\
+						\sihao\fs{~~U~~D~~C}  & \underline{\makebox[\@title@width][c]{\@cclassnumber}} & \qquad \qquad \qquad \qquad \qquad \qquad \qquad & \sihao\fs{编~号} & \underline{\makebox[\@title@width][c]{\sihao\fs\@csecret}} \\
+					\end{tabular}
+				\end{spacing}
+			}
+			%%%%%%%%%%%%%%%%%%%%%%西北师范大学 logo 图片%%%%%%%%%%%%%%%%%%%%%%%%
+			\begin{figure}[h]
+				\centering
+				\vspace*{0.6cm}
+				\includegraphics[width=0.4\textwidth]{figures/nwnulog}
+			\end{figure}
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%硕士学位论文%%%%%%%%%%%%%%%%%%%%%%%%%
+			\vspace*{0.3cm}
+			{\song\erhao\@cheadinga}\\
+			\vspace{0.4\baselineskip}
 
-      {\song\sanhao\@cheadingb}
+			{\song\sanhao\@cheadingb}
 
-      \vspace*{1cm}
+			\vspace*{1cm}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%论文标题%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \begin{center}
-      \begin{spacing}{1.5}
-      \kai \yihao \@ctitle
-      \end{spacing}
-      \end{center}
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%论文标题%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			\begin{center}
+				\begin{spacing}{1.5}
+					\kai \yihao \@ctitle
+				\end{spacing}
+			\end{center}
 
-      \vspace{\baselineskip}
-      \setlength{\@title@width}{6.0cm}
-      \setlength{\@titlea@width}{5.0cm}
-      \setlength{\@titleb@width}{5.68cm}
-      \setlength{\@titlec@width}{5.9cm}
-  {
-%%%%%%%%%%%%%%%%%%%%毕业生信息等%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{spacing}{2.0}%1.67
-%\vspace*{0.5 \baselineskip}
-   \sihao\song {研~~~~究~~~~生~~~~姓~~~~名：} \sihao\song\underline{\makebox[\@title@width][c]{\@cauthor}} \\
-   \sihao\song{指导教师姓名、职称：} \sihao\song\underline{\makebox[\@title@width][c]{\@csupervisor}} \\
-   \sihao\song{实践指导教师姓名、职称：} \sihao\song\underline{\makebox[\@titlea@width][l]{\quad~\@cchair}} \\
-   \sihao\song {专~~~业~~~学~~~位~~~类~~~别：} \sihao\song\underline{\makebox[\@titleb@width][c]{\@csubjecttitle}} \\
-   \sihao\song {专~~~业~~~学~~~位~~~领~~~域：} \sihao\song\underline{\makebox[\@titleb@width][c]{\@caffil}} \\
-   \sihao\song{专~~~~~~~项~~~~~~~计~~~~~~~划：} \sihao\song\underline{\makebox[\@titlec@width][l]{\qquad\@cmajor}}\\
-   \vspace{2.0\baselineskip}
-   %\vspace*{2.5cm}
+			\vspace{\baselineskip}
+			\setlength{\@title@width}{6.0cm}
+			\setlength{\@titlea@width}{5.0cm}
+			\setlength{\@titleb@width}{5.68cm}
+			\setlength{\@titlec@width}{5.9cm}
+			{
+				%%%%%%%%%%%%%%%%%%%%毕业生信息等%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+				\begin{spacing}{2.0}%1.67
+					%\vspace*{0.5 \baselineskip}
+					\sihao\song {研~~~~究~~~~生~~~~姓~~~~名：} \sihao\song\underline{\makebox[\@title@width][c]{\@cauthor}} \\
+					\sihao\song{指导教师姓名、职称：} \sihao\song\underline{\makebox[\@title@width][c]{\@csupervisor}} \\
+					\sihao\song{实践指导教师姓名、职称：} \sihao\song\underline{\makebox[\@titlea@width][l]{\quad~\@cchair}} \\
+					\sihao\song {专~~~业~~~学~~~位~~~类~~~别：} \sihao\song\underline{\makebox[\@titleb@width][c]{\@csubjecttitle}} \\
+					\sihao\song {专~~~业~~~学~~~位~~~领~~~域：} \sihao\song\underline{\makebox[\@titleb@width][c]{\@caffil}} \\
+					\sihao\song{专~~~~~~~项~~~~~~~计~~~~~~~划：} \sihao\song\underline{\makebox[\@titlec@width][l]{\qquad\@cmajor}}\\
+					\vspace{2.0\baselineskip}
+					%\vspace*{2.5cm}
 
-   \sanhao\hei{\makebox[\@title@width][l]{~~~~~~~~~~\today}} \\%%%封面第一页的日期
+					\sanhao\hei{\makebox[\@title@width][l]{~~~~~~~~~~\today}} \\%%%封面第一页的日期
 
-  %\end{tabular}    \qquad
-  \end{spacing}
+					%\end{tabular}    \qquad
+				\end{spacing}
 
- }
- \end{center}
+			}
+		\end{center}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\clearpage
-%\thispagestyle{empty} %去掉页眉页脚
-%
-%\noindent
-%\makebox[2.59cm][s]{}{\begin{tabular}{ll}
-%\xiaosi\hei 学校代号:\xiaosi\song~~\@chnunumer \\
-%\xiaosi\hei 学\qquad~号:\xiaosi\song~~\@cnumber\\
-%\xiaosi\hei 密\qquad~级:\xiaosi\song~~\@csecret\\
-%\end{tabular}
-%}
-%
-%%
-%\vspace{5\baselineskip}
-%
-%\noindent
-%\makebox[2.59cm][s]{}{
-%\xiaoer\song \@chnuname \@cheading
-%}
-%\\
-%\vspace{4\baselineskip}
-%
-%\begin{spacing}{2}
-%\hangafter=1\hangindent=2.7cm   %换行后自动缩进
-%{\noindent
-%\makebox[2.59cm][s]{} {\hei\erhao\@ctitle}}
-%\end{spacing}
-%\vspace{4\baselineskip}
-%
-%\setlength{\@title@width}{6.5cm}
-%  {
-%  \begin{spacing}{2}
-%  \xiaosi
-%  \noindent
-%  \makebox[2.59cm][s]{}{
-%    \begin{tabular}{lc}
-%   \underline{\xiaosi\hei 学位申请人姓名:\song\makebox[\@title@width][l]{\qquad\qquad\@cauthor}} \\
-%   \underline{\xiaosi\hei 导师姓名及职称:\song\makebox[\@title@width][l]{\qquad\qquad\@csupervisor}} \\
-%   \underline{\xiaosi\hei 培~~~~养~~~~~单~~~~位:\song\makebox[\@title@width][l]{\qquad\qquad\@caffil}} \\
-%   \underline{\xiaosi\hei 专~~~~业~~~~~名~~~~称:\song\makebox[\@title@width][l]{\qquad\qquad\@csubject}} \\
-%   \underline{\xiaosi\hei 论~文~提~交~日~期:\song\makebox[\@title@width][l]{\qquad\qquad\@cdate}} \\
-%   \underline{\xiaosi\hei 论~文~答~辩~日~期:\song\makebox[\@title@width][l]{\qquad\qquad\@ddate}}\\
-%   \underline{\xiaosi\hei 答辩委员会主席:\song\makebox[\@title@width][l]{\qquad\qquad\@cchair}} \\
-%  \end{tabular}
-%   }
-%   \end{spacing}
-%    }
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		%\clearpage
+		%\thispagestyle{empty} %去掉页眉页脚
+		%
+		%\noindent
+		%\makebox[2.59cm][s]{}{\begin{tabular}{ll}
+		%\xiaosi\hei 学校代号:\xiaosi\song~~\@chnunumer \\
+		%\xiaosi\hei 学\qquad~号:\xiaosi\song~~\@cnumber\\
+		%\xiaosi\hei 密\qquad~级:\xiaosi\song~~\@csecret\\
+		%\end{tabular}
+		%}
+		%
+		%%
+		%\vspace{5\baselineskip}
+		%
+		%\noindent
+		%\makebox[2.59cm][s]{}{
+		%\xiaoer\song \@chnuname \@cheading
+		%}
+		%\\
+		%\vspace{4\baselineskip}
+		%
+		%\begin{spacing}{2}
+		%\hangafter=1\hangindent=2.7cm   %换行后自动缩进
+		%{\noindent
+		%\makebox[2.59cm][s]{} {\hei\erhao\@ctitle}}
+		%\end{spacing}
+		%\vspace{4\baselineskip}
+		%
+		%\setlength{\@title@width}{6.5cm}
+		%  {
+		%  \begin{spacing}{2}
+		%  \xiaosi
+		%  \noindent
+		%  \makebox[2.59cm][s]{}{
+		%    \begin{tabular}{lc}
+		%   \underline{\xiaosi\hei 学位申请人姓名:\song\makebox[\@title@width][l]{\qquad\qquad\@cauthor}} \\
+		%   \underline{\xiaosi\hei 导师姓名及职称:\song\makebox[\@title@width][l]{\qquad\qquad\@csupervisor}} \\
+		%   \underline{\xiaosi\hei 培~~~~养~~~~~单~~~~位:\song\makebox[\@title@width][l]{\qquad\qquad\@caffil}} \\
+		%   \underline{\xiaosi\hei 专~~~~业~~~~~名~~~~称:\song\makebox[\@title@width][l]{\qquad\qquad\@csubject}} \\
+		%   \underline{\xiaosi\hei 论~文~提~交~日~期:\song\makebox[\@title@width][l]{\qquad\qquad\@cdate}} \\
+		%   \underline{\xiaosi\hei 论~文~答~辩~日~期:\song\makebox[\@title@width][l]{\qquad\qquad\@ddate}}\\
+		%   \underline{\xiaosi\hei 答辩委员会主席:\song\makebox[\@title@width][l]{\qquad\qquad\@cchair}} \\
+		%  \end{tabular}
+		%   }
+		%   \end{spacing}
+		%    }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%英文题目%%%%%%%%%%%%%%%%%%%%%%%%%%
-\clearpage
-\thispagestyle{empty} %去掉页眉页脚
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%英文题目%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\clearpage
+		\thispagestyle{empty} %去掉页眉页脚
 
-\begin{center}
-\qquad\\
-\vspace*{2.1cm}
- \begin{spacing}{1.5}
- \er\@etitle
+		\begin{center}
+			\qquad\\
+			\vspace*{2.1cm}
+			\begin{spacing}{1.5}
+				\er\@etitle
 
- \end{spacing}
+			\end{spacing}
 
- \begin{spacing}{2.0}
- \vspace*{1.85\baselineskip}
- \sihao
-A Thesis Submitted to\\
-Northwest Normal University\\
-in partial fulfillment of the requirement\\
-for the degree of\\
-Master of Electronic Information / Education\\
-by\\
- \@ename \\
- Supervisor: (Associate) Professor \@esupervisor\\
- Supervisor for Practice Guiding: Senior Engineer Wang Weimin
+			\begin{spacing}{2.0}
+				\vspace*{1.85\baselineskip}
+				\sihao
+				A Thesis Submitted to\\
+				Northwest Normal University\\
+				in partial fulfillment of the requirement\\
+				for the degree of\\
+				Master of Electronic Information / Education\\
+				by\\
+				\@ename \\
+				Supervisor: (Associate) Professor \@esupervisor\\
+				Supervisor for Practice Guiding: Senior Engineer Wang Weimin
 
-\vspace*{3\baselineskip}
-\sanhao\@edate
-
-
-\end{spacing}
-\end{center}
+				\vspace*{3\baselineskip}
+				\sanhao\@edate
 
 
-\end{titlepage}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%-------西北师范大学学位论文原创性声明----%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\hspace*{2em}
-  \clearpage
-  \thispagestyle{empty}
-  \begin{center}\hei\xiaoer{\@gongjuren}\end{center}\par
-  \vspace{2.8\baselineskip}
-
-    \begin{center}\hei\xiaoer{\@authorizationtitle}\end{center}\par
-    \vspace{1.8\baselineskip}
-
-    {
-    \linespread{2.0}
-    \song\sihao{\@authorizationcontent}\par
-
-   % \song\defaultfont{\@authorizationcontentone}\par
-      %  \song\defaultfont{\@authorizationcontenttwo}\par
-%            \song\defaultfont{\@authorizationcontentthree}\par
-%    \begin{tabular}{ll}    @authorizationconentone
-%     \song\defaultfont\@authorizationadd\par&\\
-%    &1、保密\song\xiaoer{$\Box$}\song\xiaosi，在\underline{\qquad}年解密后适用于本授权书\\
-%    &2、不保密\song\xiaoer{$\Box$}。\\
-%    &(请在以上相应方框内打"$\surd$") \\
-%    \end{tabular}
-    }
-    \vspace{2.55\baselineskip}
-        \begin{flushright}
-    {
-    \song\sihao
-      \@ownersigncap \makebox[3.5cm][s]{}\par  %\@signdatecap \makebox[1.5cm][s]{} 年 \makebox[1cm][s]{} 月 \makebox[1cm][s]{} 日 \\
-      %\indent
-      \vspace{0.6\baselineskip}
-      \@supervisorsigncap \makebox[3.5cm][s]{}\par
-      \vspace{0.6\baselineskip}
-      \@signdatecap\makebox[1.5cm][s]{}
-      %\makebox[0.7cm][s]{} 年 \makebox[0.7cm][s]{} 月 \makebox[0.7cm][s]{} 日
-      %\vspace{0.6\baselineskip}
-
-    }
-        \end{flushright}
+			\end{spacing}
+		\end{center}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%-----西北师范大学学位论文版权使用授权书---%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\end{titlepage}
 
-  \clearpage
-  \thispagestyle{empty}
-    \begin{center}\hei\xiaoer{\@gongjuren}\end{center}\par
-  \vspace{2.5\baselineskip}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%-------西北师范大学学位论文原创性声明----%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%\hspace*{2em}
+	\clearpage
+	\thispagestyle{empty}
+	\begin{center}\hei\xiaoer{\@gongjuren}\end{center}\par
+	\vspace{2.8\baselineskip}
 
-    \begin{center}\hei\xiaoer{\@banquanshiyongshouquan}\end{center}\par
-    \vspace{2\baselineskip}
-    {
-    %\setlength{\baselineskip}{18pt}
-    \linespread{2.0}
-    \song\sihao{\@banquanshiyongshouquanzhengwena}\par
-    \song\sihao{\@banquanshiyongshouquanzhengwenb}\par
+	\begin{center}\hei\xiaoer{\@authorizationtitle}\end{center}\par
+	\vspace{1.8\baselineskip}
 
-   % \song\defaultfont{\@authorizationcontentone}\par
-      %  \song\defaultfont{\@authorizationcontenttwo}\par
-%            \song\defaultfont{\@authorizationcontentthree}\par
-%    \begin{tabular}{ll}    @authorizationconentone
-%     \song\defaultfont\@authorizationadd\par&\\
-%    &1、保密\song\xiaoer{$\Box$}\song\xiaosi，在\underline{\qquad}年解密后适用于本授权书\\
-%    &2、不保密\song\xiaoer{$\Box$}。\\
-%    &(请在以上相应方框内打"$\surd$") \\
-%    \end{tabular}
-    }
-    \vspace{2\baselineskip}
-        \begin{flushright}
-    {
-    \song\sihao
-      \@ownersigncap \makebox[3.5cm][s]{}\par  %\@signdatecap \makebox[1.5cm][s]{} 年 \makebox[1cm][s]{} 月 \makebox[1cm][s]{} 日 \\
-      %\indent
-      \vspace{0.6\baselineskip}
-     % \@supervisorsigncap \makebox[3.5cm][s]{}\par
-%      \vspace{0.6\baselineskip}
-      \@signdatecap \makebox[1.4cm][s]{}
-      %\vspace{1\baselineskip}
-      %\makebox[0.8cm][s]{} 年 \makebox[0.8cm][s]{} 月 \makebox[0.8cm][s]{} 日
-    }
-        \end{flushright}
-    %}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%西北师范大学研究生学位论文作者信息%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\clearpage
-%\thispagestyle{empty} %去掉页眉页脚
-%\fancyfoot[C]{\song\xiaowu ~\thepage~}
-%{
-%    \vspace{0.6\baselineskip}
-%    \begin{center}\hei\xiaoer{\@authorinformationtitle}\end{center}\par
-%    %表格
-%
-%       \renewcommand\arraystretch{2.5}
-%\begin{table}[h]
-%\centering
-%\song\xiaosi
-%%\resizebox{\textwidth}{10cm}{%表格宽度减小
-%\setlength{\tabcolsep}{7mm}{%表格宽度增加
-%\begin{tabular}{|c|c|c|c|c|}
-%  %\song\xiaosi
-%  \hline
-%  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-%  %跨列（将两列合并为一列）第一个参数指明跨几列  第二个参数指明内容居中并在左右两边画上直线 最后一个参数是表格内容 multicolumn{2}{|c|}{1}
-%  \song\xiaosi{论文题目}& \multicolumn{4}{c|}{基于小区分割的 5G 异构网络资源配置和干扰协调方案} \\
-%  \hline
-%  姓~~~~名\song\xiaosi &\multicolumn{2}{c|}{纪珊珊}& \song\xiaosi{学~~~~号}&\song\xiaosi{2016211338}\\
-%  \hline
-%  专业名称\song\xiaosi &\multicolumn{2}{c|}{软件工程}&\song\xiaosi{答辩日期} &  \\
-%  \hline
-%  联系电话\song\xiaosi & 18252086081 &${\text{E\_mail}}$ & \multicolumn{2}{c|}{1347920139$\text{@}$qq.com} \\
-%  \hline
-%  \multicolumn{5}{|c|}{通信地址（邮编）：兰州市安宁区安宁东路 967 号西北师范大学，730070}\\
-%    \hline
-%  \multicolumn{5}{|l|}{备注：} \\
-%   \hline
-%\end{tabular}
-%}
-%\end{table}
-%
-%}
+	{
+		\linespread{2.0}
+		\song\sihao{\@authorizationcontent}\par
+
+		% \song\defaultfont{\@authorizationcontentone}\par
+		%  \song\defaultfont{\@authorizationcontenttwo}\par
+		%            \song\defaultfont{\@authorizationcontentthree}\par
+		%    \begin{tabular}{ll}    @authorizationconentone
+		%     \song\defaultfont\@authorizationadd\par&\\
+		%    &1、保密\song\xiaoer{$\Box$}\song\xiaosi，在\underline{\qquad}年解密后适用于本授权书\\
+		%    &2、不保密\song\xiaoer{$\Box$}。\\
+		%    &(请在以上相应方框内打"$\surd$") \\
+		%    \end{tabular}
+	}
+	\vspace{2.55\baselineskip}
+	\begin{flushright}
+		{
+			\song\sihao
+			\@ownersigncap \makebox[3.5cm][s]{}\par  %\@signdatecap \makebox[1.5cm][s]{} 年 \makebox[1cm][s]{} 月 \makebox[1cm][s]{} 日 \\
+			%\indent
+			\vspace{0.6\baselineskip}
+			\@supervisorsigncap \makebox[3.5cm][s]{}\par
+			\vspace{0.6\baselineskip}
+			\@signdatecap\makebox[1.5cm][s]{}
+			%\makebox[0.7cm][s]{} 年 \makebox[0.7cm][s]{} 月 \makebox[0.7cm][s]{} 日
+			%\vspace{0.6\baselineskip}
+
+		}
+	\end{flushright}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   Abstract and Keywords  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\clearpage
-%
-%\pagestyle{fancy}
-%  \fancyhf{}
-%\fancyhead[CO]{\song\xiaowu \@cheading}
-%\fancyhead[CE]{\song\xiaowu \@ctitle}
-%\fancyfoot[C]{\song\xiaowu ~\thepage~}
-%%\fancyhead[CO]{\xiaowu\song\leftmark} %奇数页，章标题
-%\fancyhead[LE]{\small\songti\rightmark}
-%\fancyhead[RO]{\small\songti\leftmark}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%-----西北师范大学学位论文版权使用授权书---%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\clearpage
+	\thispagestyle{empty}
+	\begin{center}\hei\xiaoer{\@gongjuren}\end{center}\par
+	\vspace{2.5\baselineskip}
+
+	\begin{center}\hei\xiaoer{\@banquanshiyongshouquan}\end{center}\par
+	\vspace{2\baselineskip}
+	{
+		%\setlength{\baselineskip}{18pt}
+		\linespread{2.0}
+		\song\sihao{\@banquanshiyongshouquanzhengwena}\par
+		\song\sihao{\@banquanshiyongshouquanzhengwenb}\par
+
+		% \song\defaultfont{\@authorizationcontentone}\par
+		%  \song\defaultfont{\@authorizationcontenttwo}\par
+		%            \song\defaultfont{\@authorizationcontentthree}\par
+		%    \begin{tabular}{ll}    @authorizationconentone
+		%     \song\defaultfont\@authorizationadd\par&\\
+		%    &1、保密\song\xiaoer{$\Box$}\song\xiaosi，在\underline{\qquad}年解密后适用于本授权书\\
+		%    &2、不保密\song\xiaoer{$\Box$}。\\
+		%    &(请在以上相应方框内打"$\surd$") \\
+		%    \end{tabular}
+	}
+	\vspace{2\baselineskip}
+	\begin{flushright}
+		{
+			\song\sihao
+			\@ownersigncap \makebox[3.5cm][s]{}\par  %\@signdatecap \makebox[1.5cm][s]{} 年 \makebox[1cm][s]{} 月 \makebox[1cm][s]{} 日 \\
+			%\indent
+			\vspace{0.6\baselineskip}
+			% \@supervisorsigncap \makebox[3.5cm][s]{}\par
+			%      \vspace{0.6\baselineskip}
+			\@signdatecap \makebox[1.4cm][s]{}
+			%\vspace{1\baselineskip}
+			%\makebox[0.8cm][s]{} 年 \makebox[0.8cm][s]{} 月 \makebox[0.8cm][s]{} 日
+		}
+	\end{flushright}
+	%}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%西北师范大学研究生学位论文作者信息%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%\clearpage
+	%\thispagestyle{empty} %去掉页眉页脚
+	%\fancyfoot[C]{\song\xiaowu ~\thepage~}
+	%{
+	%    \vspace{0.6\baselineskip}
+	%    \begin{center}\hei\xiaoer{\@authorinformationtitle}\end{center}\par
+	%    %表格
+	%
+	%       \renewcommand\arraystretch{2.5}
+	%\begin{table}[h]
+	%\centering
+	%\song\xiaosi
+	%%\resizebox{\textwidth}{10cm}{%表格宽度减小
+	%\setlength{\tabcolsep}{7mm}{%表格宽度增加
+	%\begin{tabular}{|c|c|c|c|c|}
+	%  %\song\xiaosi
+	%  \hline
+	%  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+	%  %跨列（将两列合并为一列）第一个参数指明跨几列  第二个参数指明内容居中并在左右两边画上直线 最后一个参数是表格内容 multicolumn{2}{|c|}{1}
+	%  \song\xiaosi{论文题目}& \multicolumn{4}{c|}{基于小区分割的 5G 异构网络资源配置和干扰协调方案} \\
+	%  \hline
+	%  姓~~~~名\song\xiaosi &\multicolumn{2}{c|}{纪珊珊}& \song\xiaosi{学~~~~号}&\song\xiaosi{2016211338}\\
+	%  \hline
+	%  专业名称\song\xiaosi &\multicolumn{2}{c|}{软件工程}&\song\xiaosi{答辩日期} &  \\
+	%  \hline
+	%  联系电话\song\xiaosi & 18252086081 &${\text{E\_mail}}$ & \multicolumn{2}{c|}{1347920139$\text{@}$qq.com} \\
+	%  \hline
+	%  \multicolumn{5}{|c|}{通信地址（邮编）：兰州市安宁区安宁东路 967 号西北师范大学，730070}\\
+	%    \hline
+	%  \multicolumn{5}{|l|}{备注：} \\
+	%   \hline
+	%\end{tabular}
+	%}
+	%\end{table}
+	%
+	%}
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   Abstract and Keywords  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%\clearpage
+	%
+	%\pagestyle{fancy}
+	%  \fancyhf{}
+	%\fancyhead[CO]{\song\xiaowu \@cheading}
+	%\fancyhead[CE]{\song\xiaowu \@ctitle}
+	%\fancyfoot[C]{\song\xiaowu ~\thepage~}
+	%%\fancyhead[CO]{\xiaowu\song\leftmark} %奇数页，章标题
+	%\fancyhead[LE]{\small\songti\rightmark}
+	%\fancyhead[RO]{\small\songti\leftmark}
 
 
 
-%\makeatletter %双线页眉
-%\def\headrule{{\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi%
-%\hrule\@height 1.0pt \@width\headwidth\vskip1pt %上面线为 1pt 粗
-%\hrule\@height 0.5pt\@width\headwidth  %下面 0.5pt 粗
-%\vskip-2\headrulewidth\vskip-1pt}      %两条线的距离 1pt
-%\vspace{7mm}
-%}     %双线与下面正文之间的垂直间距
-%
-%\fancypagestyle{plain}{% 设置开章页页眉页脚风格
-%   \fancyhf{}%
-%\fancyhead[CO]{\song\xiaowu \@cheading}
-%\fancyhead[CE]{\song\xiaowu \@ctitle}
-%\fancyfoot[C]{\song\xiaowu ~\thepage~} %首页页脚格式
-%}
+	%\makeatletter %双线页眉
+	%\def\headrule{{\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi%
+	%\hrule\@height 1.0pt \@width\headwidth\vskip1pt %上面线为 1pt 粗
+	%\hrule\@height 0.5pt\@width\headwidth  %下面 0.5pt 粗
+	%\vskip-2\headrulewidth\vskip-1pt}      %两条线的距离 1pt
+	%\vspace{7mm}
+	%}     %双线与下面正文之间的垂直间距
+	%
+	%\fancypagestyle{plain}{% 设置开章页页眉页脚风格
+	%   \fancyhf{}%
+	%\fancyhead[CO]{\song\xiaowu \@cheading}
+	%\fancyhead[CE]{\song\xiaowu \@ctitle}
+	%\fancyfoot[C]{\song\xiaowu ~\thepage~} %首页页脚格式
+	%}
 
 
-%\addcontentsline{toc}{chapter}{摘~~~~~~~~要}
-% \chapter*{\centering\xiaoer\ 摘\qquad 要}
-% \song\defaultfont
-% \@cabstract
-% \vspace{\baselineskip}
+	%\addcontentsline{toc}{chapter}{摘~~~~~~~~要}
+	% \chapter*{\centering\xiaoer\ 摘\qquad 要}
+	% \song\defaultfont
+	% \@cabstract
+	% \vspace{\baselineskip}
 
-% \hangafter=1\hangindent=52.3pt\noindent   %如果取消该行注释，关键词换行时将会自动缩进
-% \noindent
-% {\hei\xiaosi 关键词： \@ckeywords}
-%
-%%%%%%%%%%%%%%%%%%%%   English Abstract  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\clearpage
-%
-%\addcontentsline{toc}{chapter}{Abstract}
-% \chapter*{\centering\xiaoer \bf{Abstract}}
-% %\vspace{\baselineskip}
-% \@eabstract
-% \vspace{\baselineskip}
+	% \hangafter=1\hangindent=52.3pt\noindent   %如果取消该行注释，关键词换行时将会自动缩进
+	% \noindent
+	% {\hei\xiaosi 关键词： \@ckeywords}
+	%
+	%%%%%%%%%%%%%%%%%%%%   English Abstract  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%\clearpage
+	%
+	%\addcontentsline{toc}{chapter}{Abstract}
+	% \chapter*{\centering\xiaoer \bf{Abstract}}
+	% %\vspace{\baselineskip}
+	% \@eabstract
+	% \vspace{\baselineskip}
 
-% \hangafter=1\hangindent=60pt\noindent  %如果取消该行注释，KEY WORDS 换行时将会自动缩进
-% \noindent
-% {\xiaosi\textbf{Key Words:} \@ekeywords}
+	% \hangafter=1\hangindent=60pt\noindent  %如果取消该行注释，KEY WORDS 换行时将会自动缩进
+	% \noindent
+	% {\xiaosi\textbf{Key Words:} \@ekeywords}
 }
 %\clearpage
 %\makeatother

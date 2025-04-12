@@ -21,3 +21,9 @@ python make.py
 ```bash
 python clean.py
 ```
+
+格式化所有的文档工程文件，可以执行
+
+```bash
+python format.py
+```
