@@ -8,6 +8,8 @@
 
 ## 用法
 
+开始之前你还需要安装 [ImageMagick](https://imagemagick.org/script/download.php)，它是把插图同义转换为 eps 格式的工具。
+
 编译文档可以执行命令，在本项目下可生成 `Main.pdf` 文件
 
 ```bash
