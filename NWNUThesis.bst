@@ -8,39 +8,6 @@
 % $Id: bnubib.bst 178 2009-01-04 13:37:39Z littleleo $
 FUNCTION {is.print.banners.to.terminal} { #1 }
 
-%%%%%%%%%%%%%%%%
-% 版本与提示信息
-%%%%%%%%%%%%%%%%
-% 版本信息
-FUNCTION{bst.file.version} { "0.1" }
-FUNCTION{bst.file.date} { "2013/08/20" }
-FUNCTION{bst.file.website} {
-  "https://code.google.com/p/hnuthesis/" }
-
-% 开始提示信息
-FUNCTION {banner.message}{
-is.print.banners.to.terminal
-    { "-- HNUTThesis.bst version" " " * bst.file.version *
-      " (" * bst.file.date * ") " * "by Prof. Xiangdong Jia" *
-       top$
-       "-- " bst.file.website *
-       top$
-       "-- See the " quote$ * "userguide.pdf" * quote$ *
-       " manual for usage information." *
-       top$
-    }
-    { skip$ }
-  if$
-}
-
-% 完成提示信息
-FUNCTION {completed.message} {
-is.print.banners.to.terminal
-    { "" top$ "Done." top$ }
-    { skip$ }
-  if$
-}
-
 ENTRY
   { address
     author
@@ -288,9 +255,6 @@ FUNCTION {emphasize}
 }
 
 INTEGERS { nameptr namesleft numnames }
-
-FUNCTION {bbl.etal}
-{ "et~al" }
 
 FUNCTION {default.max.num.names.before.forced.et.al} { #3 } 
 FUNCTION {default.num.names.shown.with.forced.et.al} { #3 } 
@@ -898,10 +862,10 @@ new.block
 %%format.title "" * "title" output.check
 %format.title "~[M]" * "title" output.check
 
- if volume empty$
- { format.title "~[M]" * "title" output.check }
- {"." * "~" * title *  "~(" * volume * "th ed)" * "~[M]" * }  % book 卷
- if$
+volume empty$
+  { format.title "~[M]" * "title" output.check }
+  { "." * "~" * title * "~(" * volume * "th ed)" * "~[M]" * }
+if$
  
 new.block
 crossref missing$
@@ -1500,7 +1464,6 @@ FUNCTION {longest.label.pass}
 }
 
 %%主程序%%
-EXECUTE {banner.message}	      % 显示初始提示信息
 EXECUTE {initialize.longest.label}
 
 ITERATE {longest.label.pass}
@@ -1525,4 +1488,3 @@ FUNCTION {end.bib}
 }
 
 EXECUTE {end.bib}
-EXECUTE {completed.message}	      % 显示完成提示信息
