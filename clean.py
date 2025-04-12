@@ -5,7 +5,7 @@ patterns = [
     "*.aux", "*.bak", "*.log", "*.bbl", "*.dvi", "*.blg",
     "*.thm", "*.toc", "*.toe", "*.lof", "*.lot", "*.out",
     "*.fen", "*.fls", "*.ten", "*.ps", "*.gz", "*.synctex",
-    "*.loa", "*.gz(busy)"
+    "*.loa", "*.gz(busy)", "*.eps"
 ]
 
 deleted_count = 0
