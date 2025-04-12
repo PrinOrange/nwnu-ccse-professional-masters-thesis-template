@@ -2,10 +2,28 @@ import os
 import fnmatch
 
 patterns = [
-    "*.aux", "*.bak", "*.log", "*.bbl", "*.dvi", "*.blg",
-    "*.thm", "*.toc", "*.toe", "*.lof", "*.lot", "*.out",
-    "*.fen", "*.fls", "*.ten", "*.ps", "*.gz", "*.synctex",
-    "*.loa", "*.gz(busy)", "*.eps"
+    "*.aux",
+    "*.bak",
+    "*.log",
+    "*.bbl",
+    "*.dvi",
+    "*.blg",
+    "*.thm",
+    "*.toc",
+    "*.toe",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.fen",
+    "*.fls",
+    "*.ten",
+    "*.ps",
+    "*.gz",
+    "*.synctex",
+    "*.loa",
+    "*.gz(busy)",
+    "*.eps",
+    "*.fdb_latexmk",
 ]
 
 deleted_count = 0

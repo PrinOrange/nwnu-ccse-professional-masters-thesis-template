@@ -155,6 +155,7 @@ FUNCTION {format.note}
     }
   if$
 }
+}
 
 FUNCTION {output}
 { duplicate$ empty$

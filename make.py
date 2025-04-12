@@ -5,11 +5,8 @@ from pathlib import Path
 
 ARTICLE = "Main"
 FIGURE_DIR = Path("./figures")
-SUPPORTED_EXTS = [".png", ".jpg", ".jpeg"]
+SUPPORTED_EXTS = [".png", ".jpg", ".jpeg", ".pdf", ".svg"]
 
-if shutil.which("magick") is None:
-    print("❌ ImageMagick 未安装或未加入 PATH，请先安装并配置好后重试。")
-    exit(1)
 
 def convert_to_eps():
     print("🔄 Converting images to .eps...")
@@ -22,13 +19,14 @@ def convert_to_eps():
                 if result.returncode != 0:
                     print(f"❌ Failed to convert {img_path} to EPS")
 
+
 def compile_latex():
     commands = [
         f"latex -synctex=1 {ARTICLE}",
         f"bibtex {ARTICLE}",
         f"latex -synctex=1 {ARTICLE}",
         f"latex -synctex=1 {ARTICLE}",
-        f"dvipdfmx {ARTICLE}.dvi"
+        f"dvipdfmx {ARTICLE}.dvi",
     ]
 
     for cmd in commands:
@@ -40,7 +38,10 @@ def compile_latex():
     else:
         print("\n✅ Compilation finished successfully.")
 
+
 if __name__ == "__main__":
+    if shutil.which("magick") is None:
+        print("❌ ImageMagick 未安装或未加入 PATH，请先安装并配置好后重试。")
+        exit(1)
     convert_to_eps()
     compile_latex()
-
